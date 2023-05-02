@@ -8,7 +8,7 @@ class Explorer extends Component {
   };
 
   getLocation = async () => {
-    const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchquery}`;
+    const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchquery}&format=json`;
     console.log(API);
     const res = await axios.get(API);
     console.log(res.data[0])
