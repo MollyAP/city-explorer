@@ -12,8 +12,9 @@ class Explorer extends Component {
         console.log(API);
         const res = await axios.get(API);
         console.log(res.data[0]);
-        const { lat, lon } = res.data[0];
-        this.setState({ location: { lat, lon } });
+        const { lat, lon, display_name } = res.data[0];
+        this.setState({ location: { lat, lon, display_name } });
+
     };
 
     render() {
@@ -21,14 +22,13 @@ class Explorer extends Component {
             <>
                 <input onChange={(e) => this.setState({ searchquery: e.target.value })} placeholder="search for a city" />
                 <button onClick={this.getLocation}>Explore!</button>
-                {this.state.location.place_id &&
+                
+                {this.state.location.display_name && (
                     <h2>Welcome to lovely {this.state.location.display_name}</h2>
-                }
+                )}
 
                 {this.state.location.lat !== null && this.state.location.lon !== null && (
-                    <h2>
-                        Latitude: {this.state.location.lat}, Longitude: {this.state.location.lon}
-                    </h2>
+                    <h2>Latitude: {this.state.location.lat}, Longitude: {this.state.location.lon}</h2>
                 )}
 
             </>
