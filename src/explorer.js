@@ -61,7 +61,6 @@ class Explorer extends Component {
 
         {this.state.mapUrl !== '' && (
           <div className="mt-3">
-            <h3>Map of {this.state.location.display_name}</h3>
             <img src={this.state.mapUrl} alt="Map of city" />
           </div>
         )}
