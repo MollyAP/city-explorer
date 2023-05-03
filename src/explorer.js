@@ -5,7 +5,8 @@ import { Button, Form, Col, Row } from 'react-bootstrap';
 class Explorer extends Component {
   state = {
     searchquery: '',
-    location: { lat: null, lon: null, display_name: null }
+    location: { lat: null, lon: null, display_name: null },
+    mapUrl: ''
   };
 
   getLocation = async () => {
@@ -13,6 +14,9 @@ class Explorer extends Component {
     const res = await axios.get(API);
     const { lat, lon, display_name } = res.data[0];
     this.setState({ location: { lat, lon, display_name } });
+
+    const mapAPI = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${lat},${lon}&zoom=13`;
+    this.setState({ mapUrl: mapAPI });
   };
 
   render() {
@@ -52,6 +56,13 @@ class Explorer extends Component {
                 <p>{this.state.location.lon}</p>
               </Col>
             </Row>
+          </div>
+        )}
+
+        {this.state.mapUrl !== '' && (
+          <div className="mt-3">
+            <h3>Map of {this.state.location.display_name}</h3>
+            <img src={this.state.mapUrl} alt="Map of city" />
           </div>
         )}
       </div>
