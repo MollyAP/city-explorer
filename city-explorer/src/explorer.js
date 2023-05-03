@@ -12,9 +12,9 @@ class Explorer extends Component {
     console.log(API);
     const res = await axios.get(API);
     console.log(res.data[0]);
-    this.setState({ location: res.data[0] });
     const { lat, lon } = res.data[0];
     this.setState({ location: { lat, lon } });
+    
   };
 
   render() {
