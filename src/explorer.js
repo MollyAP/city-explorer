@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Button, Form, Col, Row } from 'react-bootstrap';
-'import './App.css';'
+import './App.css';
 
 class Explorer extends Component {
   state = {
