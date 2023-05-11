@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.daHead {
+  font-family: "Segoe Script", cursive;
+  font-size: 3em;
+  background-color: #d87093; /* Set the background color */
+  color: #FFFFFF;
+  overflow: hidden; /* Hide any overflowing content */
+  max-height: fit-content;
+  padding: 1%;
+  margin-top: 0%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body{
+  background-image:url(pink-world-map-maps-plain.jpg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.explorer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.search-label {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 3em;
+  color: #FFFFFF;
+  font-family: "Segoe Script", cursive;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-input {
+  width: 1000px;
+  height: 30px;
+  border: 2px solid #d87093;
+  border-radius: 5px;
+}
+
+.explore-button {
+  width: 20%;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-title {
+  margin-bottom: 0;
+}
+
+.result-subtitle {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.result-text {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.result-map-image {
+  width: 100%;
+  max-width: 800px;
 }
