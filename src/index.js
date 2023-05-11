@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Explorer from './Explorer';
+import Explorer from './Zez';
 import Header from './Header';
 import reportWebVitals from './reportWebVitals';
 
