@@ -2,13 +2,14 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Button, Form, Col, Row } from 'react-bootstrap';
 import './App.css';
-import "./Weather"
+import Weather from "./Weather"
 
 class Explorer extends Component {
   state = {
     searchQuery: '',
     location: { lat: null, lon: null, displayName: null },
-    mapUrl: ''
+    mapUrl: '',
+    forecast: []
   };
 
   getLocation = async () => {
@@ -16,12 +17,12 @@ class Explorer extends Component {
        const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
     const res = await axios.get(API);
     const { lat, lon, display_name } = res.data[0];
-    this.setState({ location: { lat, lon, displayName: display_name }, mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${lat},${lon}` });
-
+    
     const weatherAPI = `https://city-explorer-api-2ts6.onrender.com/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     const weatherRes = await axios.get(weatherAPI);
     // Handle the response from the /weather endpoint
-    console.log(weatherRes.data); 
+    this.setState({ location: { lat, lon, displayName: display_name }, mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${lat},${lon}`, forecast:weatherRes.data });
+    
     }
   catch(error){
     console.log(error)
@@ -75,10 +76,13 @@ class Explorer extends Component {
           </div>
         )}
         
+        <Weather forecastData={this.state.forecast}/>
+
         {this.state.error && (
         <div className="alert alert-danger" role="alert">
           <strong>Error {this.state.error.status}: </strong> {this.state.error.message}
         </div>
+        
       )}
       </div>
     );
