@@ -76,8 +76,10 @@ class Explorer extends Component {
           </div>
         )}
         
+        {this.state.forecast.length !== 0 && (
         <Weather forecastData={this.state.forecast}/>
-
+        )}
+        
         {this.state.error && (
         <div className="alert alert-danger" role="alert">
           <strong>Error {this.state.error.status}: </strong> {this.state.error.message}
