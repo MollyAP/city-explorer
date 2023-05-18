@@ -17,7 +17,7 @@ class Explorer extends Component {
     const { lat, lon, display_name } = res.data[0];
     this.setState({ location: { lat, lon, displayName: display_name } });
 
-    const weatherAPI = `https://city-explorer-api-2ts6.onrender.com/weather?lat=${lat}&lon=${lon}&searchQuery=${display_name}`;
+    const weatherAPI = `https://city-explorer-api-2ts6.onrender.com/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     const weatherRes = await axios.get(weatherAPI);
     // Handle the response from the /weather endpoint
     console.log(weatherRes.data); 
