@@ -15,7 +15,7 @@ class Explorer extends Component {
        const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
     const res = await axios.get(API);
     const { lat, lon, display_name } = res.data[0];
-    this.setState({ location: { lat, lon, displayName: display_name } });
+    this.setState({ location: { lat, lon, displayName: display_name }, mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${lat},${lon}` });
 
     const weatherAPI = `https://city-explorer-api-2ts6.onrender.com/weather?lat=${lat}&lon=${lon}&searchQuery=${this.state.searchQuery}`;
     const weatherRes = await axios.get(weatherAPI);
