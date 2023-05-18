@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Button, Form, Col, Row } from 'react-bootstrap';
 import './App.css';
-import Weather from "./Weather"
+import Weather from "./Weather";
+import Movie from "./Movie"
 
 class Explorer extends Component {
   state = {
