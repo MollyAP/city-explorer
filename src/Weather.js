@@ -15,14 +15,14 @@ const Weather = ({ forecastData }) => {
                 <th>Description</th>
               </tr>
             </thead>
-            {/* <tbody>
+            <tbody>
               {forecastData.map((forecast, index) => (
                 <tr key={index}>
                   <td>{forecast.date}</td>
                   <td>{forecast.description}</td>
                 </tr>
               ))}
-            </tbody> */}
+            </tbody>
           </Table>
         </Card.Body>
       </Card>
