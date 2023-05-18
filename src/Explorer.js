@@ -25,7 +25,7 @@ class Explorer extends Component {
     
     }
   catch(error){
-    console.log(error)
+    this.setState({error})
   }
   };
 
@@ -79,10 +79,15 @@ class Explorer extends Component {
         {this.state.forecast.length !== 0 && (
         <Weather forecastData={this.state.forecast}/>
         )}
-        
+
         {this.state.error && (
         <div className="alert alert-danger" role="alert">
-          <strong>Error {this.state.error.status}: </strong> {this.state.error.message}
+          <strong>Error {this.state.error.status}: </strong>  
+          <div class="outer-container">
+          <div class="inner-container">
+            <p>Sowwy, the page you are looking for does not exist ówò</p>
+          </div>
+        </div> {this.state.error.message}
         </div>
         
       )}
