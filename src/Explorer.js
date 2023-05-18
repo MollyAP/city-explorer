@@ -11,13 +11,20 @@ class Explorer extends Component {
   };
 
   getLocation = async () => {
-    const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
+    try{
+       const API = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_CITY_KEY}&q=${this.state.searchQuery}&format=json`;
     const res = await axios.get(API);
     const { lat, lon, display_name } = res.data[0];
     this.setState({ location: { lat, lon, displayName: display_name } });
 
-    const mapAPI = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${lat},${lon}&zoom=13`;
-    this.setState({ mapUrl: mapAPI });
+    const weatherAPI = `https://city-explorer-api-2ts6.onrender.com/weather?lat=${lat}&lon=${lon}&searchQuery=${display_name}`;
+    const weatherRes = await axios.get(weatherAPI);
+    // Handle the response from the /weather endpoint
+    console.log(weatherRes.data); 
+    }
+  catch(error){
+    console.log(error)
+  }
   };
 
   render() {
@@ -66,6 +73,12 @@ class Explorer extends Component {
             <img className="result-map-image" src={this.state.mapUrl} alt="Map of city" />
           </div>
         )}
+        
+        {this.state.error && (
+        <div className="alert alert-danger" role="alert">
+          <strong>Error {this.state.error.status}: </strong> {this.state.error.message}
+        </div>
+      )}
       </div>
     );
   }

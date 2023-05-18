@@ -1,7 +1,8 @@
 .daHead {
   font-family: "Segoe Script", cursive;
   font-size: 3em;
-  background-color: #d87093; /* Set the background color */
+  background-color: rgba(216, 112, 147,.7);
+  border: 5px solid #d87093;
   color: #FFFFFF;
   overflow: hidden; /* Hide any overflowing content */
   max-height: fit-content;
@@ -15,9 +16,16 @@ body{
 }
 
 .explorer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-left: 30%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: rgba(216, 112, 147,.7);
+  border: 3px solid #d87093;
+  max-width: fit-content;
+  
+  border-radius: 5px;
 }
 
 .search-label {
@@ -31,7 +39,7 @@ body{
 }
 
 .search-input {
-  width: 1000px;
+  width: 100px;
   height: 30px;
   border: 2px solid #d87093;
   border-radius: 5px;
