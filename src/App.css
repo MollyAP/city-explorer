@@ -16,17 +16,16 @@ body{
 }
 
 .explorer-container {
-  margin-left: 30%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  background-color: rgba(216, 112, 147,.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(216, 112, 147, .7);
   border: 3px solid #d87093;
   max-width: fit-content;
-  
+  padding: 3%;
   border-radius: 5px;
 }
+
 
 .search-label {
   text-align: center;
