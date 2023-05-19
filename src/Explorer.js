@@ -29,8 +29,14 @@ class Explorer extends Component {
       const movieAPI = `https://city-explorer-api-2ts6.onrender.com/movies?searchQuery=${this.state.searchQuery}`;
       const movieRes = await axios.get(movieAPI);
 
-    }
-    catch (error) {
+      this.setState({
+        location: { lat, lon, displayName: display_name },
+        mapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${lat},${lon}`,
+        forecast: weatherRes.data,
+        movies: movieRes.data
+
+      });
+    } catch (error) {
       this.setState({ error })
     }
   };
