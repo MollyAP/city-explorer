@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Table } from 'react-bootstrap';
 
 const Movie = ({ movieData }) => {
-    console.log(movieData)
+  console.log(movieData);
   return (
     <div className="movie-container">
       <h2>Movie Forecast</h2>
