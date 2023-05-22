@@ -3,7 +3,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 
 const CityForm = ({ searchQuery, handleInputChange, getLocation }) => {
   return (
-    <div className="form-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div className="form-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'fit-content' }}>
       <Form>
         <Form.Group as={Row} controlId="formSearch">
           <Form.Label className="search-label col-sm-2" column sm={2}>
