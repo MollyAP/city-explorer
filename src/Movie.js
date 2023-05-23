@@ -1,8 +1,19 @@
 import React from 'react';
 import { Card, Table } from 'react-bootstrap';
 
+const MovieItem = ({ title, overview, releaseDate }) => {
+  return (
+    <tr>
+      <td>{title}</td>
+      <td>{overview}</td>
+      <td>{releaseDate}</td>
+    </tr>
+  );
+};
+
 const Movie = ({ movieData }) => {
   console.log(movieData);
+
   return (
     <div className="movie-container">
       <h2>Movie Forecast</h2>
@@ -18,11 +29,12 @@ const Movie = ({ movieData }) => {
             </thead>
             <tbody>
               {movieData.map((movie, index) => (
-                <tr key={index}>
-                  <td>{movie.title}</td>
-                  <td>{movie.overview}</td>
-                  <td>{movie.releaseDate}</td>
-                </tr>
+                <MovieItem
+                  key={index}
+                  title={movie.title}
+                  overview={movie.overview}
+                  releaseDate={movie.releaseDate}
+                />
               ))}
             </tbody>
           </Table>
