@@ -40,7 +40,6 @@ body::-webkit-scrollbar-thumb {
   padding-bottom: 2%;
   background-color: rgba(216, 112, 147,.7);
   border: 3px solid #d87093;
-  max-width: fit-content;
   border-radius: 5px;
 }
 
