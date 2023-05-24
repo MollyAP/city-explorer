@@ -11,7 +11,7 @@ const WeatherDay = ({ date, description }) => {
 };
 
 const Weather = ({ forecastData }) => {
-  console.log(forecastData);
+//   console.log(forecastData);
 
   return (
     <div className="weather-container">
